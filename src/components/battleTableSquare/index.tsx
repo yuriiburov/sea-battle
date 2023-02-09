@@ -12,11 +12,11 @@ const BattleTableSquare: FC<Props> = ({ squareData, handleSquareClick }) => {
     if (squareData.ship && squareData.tried) {
       return '#f00';
     }
+    if (squareData.tried) {
+      return '#ccc';
+    }
     if (squareData.ship) {
       return '#000';
-    }
-    if (!squareData.ship && squareData.tried) {
-      return '#ccc';
     }
     return 'transparent';
   };
@@ -25,9 +25,7 @@ const BattleTableSquare: FC<Props> = ({ squareData, handleSquareClick }) => {
     <div
       onClick={() => handleSquareClick(squareData)}
       className={styles['battle-table__square']}
-      style={{
-        backgroundColor: getSquareColor(),
-      }}
+      style={{ backgroundColor: getSquareColor() }}
     />
   );
 };
